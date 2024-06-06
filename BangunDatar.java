@@ -1,160 +1,71 @@
-package week9;
+package wanda;
 
-// Kelas abstrak BangunDatar
-abstract class BangunDatar {
-    public abstract double luas();
-    public abstract double keliling();
-}
-
-// Kelas untuk Persegi
-class Persegi extends BangunDatar {
+public class BangunDatar {
+    private int panjang;
+    private int lebar;
     private int sisi;
+    private double diameter;
+    private double alas;
+    private double tinggi;
+    private static final double PI = 3.14;
 
-    public Persegi(int sisi) {
+    // Konstruktor untuk Persegi
+    public BangunDatar(int sisi) {
         this.sisi = sisi;
     }
 
-    public double luas() {
-        return sisi * sisi;
-    }
-
-    public double keliling() {
-        return 4 * sisi;
-    }
-}
-
-// Kelas untuk Persegi Panjang
-class PersegiPanjang extends BangunDatar {
-    private int panjang;
-    private int lebar;
-
-    public PersegiPanjang(int panjang, int lebar) {
+    // Konstruktor untuk Persegi Panjang
+    public BangunDatar(int panjang, int lebar) {
         this.panjang = panjang;
         this.lebar = lebar;
     }
 
-    public double luas() {
-        return panjang * lebar;
-    }
-
-    public double keliling() {
-        return 2 * (panjang + lebar);
-    }
-}
-
-// Kelas untuk Lingkaran
-class Lingkaran extends BangunDatar {
-    private double diameter;
-
-    public Lingkaran(double diameter) {
+    // Konstruktor untuk Lingkaran
+    public BangunDatar(double diameter) {
         this.diameter = diameter;
     }
 
-    public double luas() {
+    // Konstruktor untuk Segitiga
+    public BangunDatar(double alas, double tinggi, boolean isSegitiga) {
+        if (isSegitiga) {
+            this.alas = alas;
+            this.tinggi = tinggi;
+        }
+    }
+
+    // Menghitung luas Persegi
+    public double luasPersegi() {
+        return sisi * sisi;
+    }
+
+    // Menghitung keliling Persegi
+    public double kelilingPersegi() {
+        return 4 * sisi;
+    }
+
+    // Menghitung luas Persegi Panjang
+    public double luasPersegiPanjang() {
+        return panjang * lebar;
+    }
+
+    // Menghitung keliling Persegi Panjang
+    public double kelilingPersegiPanjang() {
+        return 2 * (panjang + lebar);
+    }
+
+    // Menghitung luas Lingkaran
+    public double luasLingkaran() {
         double radius = diameter / 2.0;
-        return Math.PI * radius * radius;
+        return PI * radius * radius;
     }
 
-    public double keliling() {
-        return Math.PI * diameter;
-    }
-}
-
-// Kelas untuk Segitiga
-class Segitiga extends BangunDatar {
-    private double alas;
-    private double tinggi;
-
-    public Segitiga(double alas, double tinggi) {
-        this.alas = alas;
-        this.tinggi = tinggi;
+    // Menghitung keliling Lingkaran
+    public double kelilingLingkaran() {
+        return PI * diameter;
     }
 
-    public double luas() {
+    // Menghitung luas Segitiga
+    public double luasSegitiga() {
         return (alas * tinggi) / 2;
     }
-
-    public double keliling() {
-        return 0; // Untuk kesederhanaan, keliling tidak dihitung
-    }
 }
-
-
-
-/*package week9;
-
-public class BangunDatar
-{
-    private int panjang;
-    private int lebar;
-    private int diameter;
-    private int sisi;
-    private static final double pi = 3.14;
-
-    // konstruktor untuk persegi
-    public BangunDatar(int sisi)
-    {
-        this.sisi = sisi;
-    }
-
-    // konstruktor persegi panjang
-    public BangunDatar(int panjang, int lebar)
-    {
-        this.panjang = panjang;
-        this.lebar = lebar;
-    }
-
-    // konstruktor lingkaran
-    public BangunDatar(double diameter)
-    {
-        this.diameter = (int)diameter;
-    }
-
-    // untuk menghitung luas persegi
-    public int luas(int a) 
-    {
-        return a * a;
-    }
-
-    // untuk menghitung luas persegi panjang
-    public int luas(int a, int b) 
-    {
-        return a * b;
-    }
-
-    // untuk menghitung luas segitiga
-    public double luas(double a, double b) 
-    {
-        return (a * b) / 2;
-    }
-
-    // untuk menghitung luas lingkaran
-    public double luas(double a) 
-    {
-        return pi * a * a;
-    }
-
-    // getter panjang
-    public int getPanjang()
-    {
-        return panjang;
-    }
-
-    // getter lebar
-    public int getLebar()
-    {
-        return lebar;
-    }
-
-    // getter diameter
-    public int getDiameter()
-    {
-        return diameter;
-    }
-
-    // getter sisi
-    public int getSisi()
-    {
-        return sisi;
-    }
-}*/
