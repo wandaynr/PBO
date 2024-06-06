@@ -1,4 +1,4 @@
-package wanda;
+package week9;
 
 public class BangunRuang {
     private int sisi;
